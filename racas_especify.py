@@ -1,7 +1,7 @@
 def calcraca(rac):
-    raca = rac
+
     racas ={ 
-        "Anao": {
+        "Anão": {
         "deslocamento": "7.5m",
         "vantagem": "Veneno e danos de veneno",
         "visao": "Penumbra: 18m luz plena Escuro: como se fosse penumbra",
@@ -14,68 +14,58 @@ def calcraca(rac):
     },
     "Elfo": {
         "deslocamento": "9m",
-        "vantagem": "",
+        "vantagem": "Vantagem em testes de resistência a feitiços. Magias não podem o colocar para dormir.",
         "visao": "18m como se fosse luz plena e a noite como se fosse penumbra",
         "proficiencia_combate": "",
         "proficiencia_ferramenta": "",
-        "especializacao": "",
-        "idiomas": "",
+        "especializacao": "Proficiente em Percepção. Você pode se mover através do espaço de qualquer criatura que seja de tamanho maior que o seu.",
+        "idiomas": "Comum e Élfico",
         "aumento_habilidade": 2 # destreza
     },
     "Humano": {
-        "deslocamento": "",
+        "deslocamento": "9m",
         "vantagem": "",
         "visao": "",
         "proficiencia_combate": "",
         "proficiencia_ferramenta": "",
         "especializacao": "",
-        "idiomas": "",
-        "aumento_habilidade": 0
+        "idiomas": "Comum e um idioma adicional de sua escolha",
+        "aumento_habilidade": 1 # em todos os atributos
     },
     "Halfling": {
-        "deslocamento": "",
-        "vantagem": "",
+        "deslocamento": "7,5m",
+        "vantagem": "Vantagem em testes de resistência a medo",
         "visao": "",
-        "proficiencia_combate": "",
+        "proficiencia_combate": "Pode mover-se através do espaço de qualquer criatura que seja de tamanho maior que o seu",
         "proficiencia_ferramenta": "",
-        "especializacao": "",
-        "idiomas": "",
-        "aumento_habilidade": 0
+        "especializacao": "Quando você rolar um 1 natural em um teste de ataque, teste de habilidade ou teste de resistência, você pode rerrolar o dado e deve usar o novo resultado",
+        "idiomas": "Comum e Halfling",
+        "aumento_habilidade": 2 # destreza
     },
     "Meio-Elfo": {
-        "deslocamento": "",
-        "vantagem": "",
-        "visao": "",
+        "deslocamento": "9m",
+        "vantagem": "Vantagem em testes de resistência a feitiços. Magias não podem o colocar para dormir.",
+        "visao": "Visão no escuro: 18m como se fosse luz plena e a noite como se fosse penumbra",
         "proficiencia_combate": "",
         "proficiencia_ferramenta": "",
-        "especializacao": "",
-        "idiomas": "",
-        "aumento_habilidade": 0
+        "especializacao": "Proficiência em duas perícias de sua escolha",
+        "idiomas": "Comum, Élfico e um idioma adicional de sua escolha",
+        "aumento_habilidade": 2 # destreza e carisma
     },
     "Meio-Orc": {
-        "deslocamento": "",
+        "deslocamento": "9m",
         "vantagem": "",
-        "visao": "",
-        "proficiencia_combate": "",
+        "visao": "Visão no escuro: 18m como se fosse luz plena e a noite como se fosse penumbra. Não pode diferenciar cores na penumbra, apenas tons de cinza",
+        "proficiencia_combate": "Quando atinge ataque crítico com uma arma de combate corpo a corpo, você pode rolar um dado de dano adicional da arma e adicionar o resultado ao dano extra do crítico",
         "proficiencia_ferramenta": "",
-        "especializacao": "",
-        "idiomas": "",
-        "aumento_habilidade": 0
+        "especializacao": "Proficiência em Intimidação. Quando você rolar um 1 natural em um teste de ataque, teste de habilidade ou teste de resistência, você pode rerrolar o dado e deve usar o novo resultado",
+        "idiomas": "Comum e Orc",
+        "aumento_forca": 2,
+        "aumento_constituicao": 1
     }
 
     }
 
 
-    if raca == "Anão":
-        return racas["Anao"]
-    elif raca == "Elfo":
-        return racas["Elfo"]
-    elif raca == "Humano":
-        return racas["Humano"]
-    elif raca == "Halfling":
-        return racas["Halfling"]
-    elif raca == "Meio-Elfo":
-        return racas["Meio-Elfo"]
-    elif raca == "Meio-Orc":
-        return racas["Meio-Orc"]
-        
+    raca = racas.get(rac)
+    return raca
