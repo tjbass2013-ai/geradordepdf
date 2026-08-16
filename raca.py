@@ -19,10 +19,10 @@ def raca():
                 rac = "Halfling"
                 
         elif op == 5:
-                rac = "Tiefling"
+                rac = "Meio-Elfo"
                 
         elif op == 6:
-                rac = "Draconato"
+                rac = "Meio-Orc"
                 
         elif op < 1 or op > 6:
             rac = None
