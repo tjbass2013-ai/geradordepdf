@@ -22,6 +22,7 @@ class Personagem(object):
         self.modificador_inteligencia = 0
         self.modificador_sabedoria = 0
         self.modificador_carisma = 0
+        self.classe_armadura = 0
 
         if self.raca == "Anão":
             self.constituicao += racas_especify.calcraca(self.raca)["aumento_habilidade"]
@@ -55,6 +56,8 @@ class Personagem(object):
         self.vida = vida_e_dado["vida"]
         self.dado_de_vida = vida_e_dado["dado-de-vida"]
 
+        self.classe_armadura = self.ca()
+
     def atributos_de_classe(self, classe):
         atributos = {
             "vida": 0,
@@ -79,3 +82,8 @@ class Personagem(object):
             atributos["vida"] = 6 + modcalc.modCalc(self.constituicao)
             atributos["dado-de-vida"] = "1d6"
         return atributos
+
+    def ca(self):
+        classe_armadura = 10 + modcalc.modCalc(self.destreza)
+        return classe_armadura
+
