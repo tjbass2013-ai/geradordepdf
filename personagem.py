@@ -23,6 +23,9 @@ class Personagem(object):
         self.modificador_sabedoria = 0
         self.modificador_carisma = 0
         self.classe_armadura = 0
+        self.deslocamento = ""
+        self.vantagem = ""
+        self.visao = ""
 
         if self.raca == "Anão":
             self.constituicao += racas_especify.calcraca(self.raca)["aumento_habilidade"]
@@ -57,19 +60,27 @@ class Personagem(object):
         self.dado_de_vida = vida_e_dado["dado-de-vida"]
 
         self.classe_armadura = self.ca()
+        self.deslocamento = racas_especify.calcraca(self.raca)["deslocamento"]
+        self.vantagem = racas_especify.calcraca(self.raca)["vantagem"]
+        self.visao = racas_especify.calcraca(self.raca)["visao"]
+        self.proficiencia_combate = racas_especify.calcraca(self.raca)["proficiencia_combate"]
+        self.proficiencia_ferramenta = racas_especify.calcraca(self.raca)["proficiencia_ferramentas"]
+        self.especializacao = racas_especify.calcraca(self.raca)["especializacao"]
+        self.idiomas = racas_especify.calcraca(self.raca)["idiomas"]
 
     def atributos_de_classe(self, classe):
         atributos = {
             "vida": 0,
             "dado-de-vida": ""
         }
+
         if classe == "Barbaro":
             atributos["vida"] = 12 + modcalc.modCalc(self.constituicao)
             atributos["dado-de-vida"] = "1d12"
         elif classe == "Bardo":
             atributos["vida"] = 8 + modcalc.modCalc(self.constituicao)
             atributos["dado-de-vida"] = "1d8"
-        elif classe == "Clerigo":
+        elif classe == "Clérigo":
             atributos["vida"] = 8 + modcalc.modCalc(self.constituicao)
             atributos["dado-de-vida"] = "1d8"
         elif classe == "Guerreiro":
@@ -81,6 +92,66 @@ class Personagem(object):
         elif classe == "Mago":
             atributos["vida"] = 6 + modcalc.modCalc(self.constituicao)
             atributos["dado-de-vida"] = "1d6"
+        return atributos
+
+    def atributos_raca(self, rac):
+        atributos = {
+            "deslocamento": "",
+            "vantagem": "",
+            "visao": "",
+            "proficiencia_combate": "",
+            "proficiencia_ferramenta": "",
+            "especializacao": "",
+            "idiomas": ""
+        }
+        if rac == "Anão":
+            atributos["deslocamento"] = racas_especify.calcraca(self.raca)["deslocamento"]
+            atributos["vantagem"] = racas_especify.calcraca(self.raca)["vantagem"]
+            atributos["visao"] = racas_especify.calcraca(self.raca)["visao"]
+            atributos["proficiencia_combate"] = racas_especify.calcraca(self.raca)["proficiencia_combate"]
+            atributos["proficiencia_ferramenta"] = racas_especify.calcraca(self.raca)["proficiencia_ferramentas"]
+            atributos["especializacao"] = racas_especify.calcraca(self.raca)["especializacao"]
+            atributos["idiomas"] = racas_especify.calcraca(self.raca)["idiomas"]
+        elif rac == "Elfo":
+            atributos["deslocamento"] = racas_especify.calcraca(self.raca)["deslocamento"]
+            atributos["vantagem"] = racas_especify.calcraca(self.raca)["vantagem"]
+            atributos["visao"] = racas_especify.calcraca(self.raca)["visao"]
+            atributos["proficiencia_combate"] = racas_especify.calcraca(self.raca)["proficiencia_combate"]
+            atributos["proficiencia_ferramenta"] = racas_especify.calcraca(self.raca)["proficiencia_ferramentas"]
+            atributos["especializacao"] = racas_especify.calcraca(self.raca)["especializacao"]
+            atributos["idiomas"] = racas_especify.calcraca(self.raca)["idiomas"]
+        elif rac == "Humano":
+            atributos["deslocamento"] = racas_especify.calcraca(self.raca)["deslocamento"]
+            atributos["vantagem"] = racas_especify.calcraca(self.raca)["vantagem"]
+            atributos["visao"] = racas_especify.calcraca(self.raca)["visao"]
+            atributos["proficiencia_combate"] = racas_especify.calcraca(self.raca)["proficiencia_combate"]
+            atributos["proficiencia_ferramenta"] = racas_especify.calcraca(self.raca)["proficiencia_ferramentas"]
+            atributos["especializacao"] = racas_especify.calcraca(self.raca)["especializacao"]
+            atributos["idiomas"] = racas_especify.calcraca(self.raca)["idiomas"]
+        elif rac == "Halfling":
+            atributos["deslocamento"] = racas_especify.calcraca(self.raca)["deslocamento"]
+            atributos["vantagem"] = racas_especify.calcraca(self.raca)["vantagem"]
+            atributos["visao"] = racas_especify.calcraca(self.raca)["visao"]
+            atributos["proficiencia_combate"] = racas_especify.calcraca(self.raca)["proficiencia_combate"]
+            atributos["proficiencia_ferramenta"] = racas_especify.calcraca(self.raca)["proficiencia_ferramentas"]
+            atributos["especializacao"] = racas_especify.calcraca(self.raca)["especializacao"]
+            atributos["idiomas"] = racas_especify.calcraca(self.raca)["idiomas"]
+        elif rac == "Meio-Elfo":
+            atributos["deslocamento"] = racas_especify.calcraca(self.raca)["deslocamento"]
+            atributos["vantagem"] = racas_especify.calcraca(self.raca)["vantagem"]
+            atributos["visao"] = racas_especify.calcraca(self.raca)["visao"]
+            atributos["proficiencia_combate"] = racas_especify.calcraca(self.raca)["proficiencia_combate"]
+            atributos["proficiencia_ferramenta"] = racas_especify.calcraca(self.raca)["proficiencia_ferramentas"]
+            atributos["especializacao"] = racas_especify.calcraca(self.raca)["especializacao"]
+            atributos["idiomas"] = racas_especify.calcraca(self.raca)["idiomas"]
+        elif rac == "Meio-Orc":
+            atributos["deslocamento"] = racas_especify.calcraca(self.raca)["deslocamento"]
+            atributos["vantagem"] = racas_especify.calcraca(self.raca)["vantagem"]
+            atributos["visao"] = racas_especify.calcraca(self.raca)["visao"]
+            atributos["proficiencia_combate"] = racas_especify.calcraca(self.raca)["proficiencia_combate"]
+            atributos["proficiencia_ferramenta"] = racas_especify.calcraca(self.raca)["proficiencia_ferramentas"]
+            atributos["especializacao"] = racas_especify.calcraca(self.raca)["especializacao"]
+            atributos["idiomas"] = racas_especify.calcraca(self.raca)["idiomas"]
         return atributos
 
     def ca(self):
