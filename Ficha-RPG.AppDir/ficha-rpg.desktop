@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Ficha RPG
+Icon=dado
+Comment=Gerador de fichas de RPG
+Exec=gerador-ficha-rpg
+Type=Application
+Categories=Utility;
+Terminal=false
