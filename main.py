@@ -1,25 +1,25 @@
 import tkinter as tk
 from tkinter import ttk
-from ..modulos import personagem
+import personagem
 
 
 def gerar_ficha():
     jogador = entrada_jogador.get()
-    personagem = entrada_personagem.get()
+    pers = entrada_personagem.get()
     raca = combo_raca.get()
     classe = combo_classe.get()
     nivel = entrada_nivel.get()
     alinhamento = entrada_alinhamento.get()
     background = texto_background.get("1.0", tk.END)
 
-    forca = entradas_atributos["Força"].get()
-    destreza = entradas_atributos["Destreza"].get()
-    constituicao = entradas_atributos["Constituição"].get()
-    inteligencia = entradas_atributos["Inteligência"].get()
-    sabedoria = entradas_atributos["Sabedoria"].get()
-    carisma = entradas_atributos["Carisma"].get()
+    forca = int(entradas_atributos["Força"].get())
+    destreza = int(entradas_atributos["Destreza"].get())
+    constituicao = int(entradas_atributos["Constituição"].get())
+    inteligencia = int(entradas_atributos["Inteligência"].get())
+    sabedoria = int(entradas_atributos["Sabedoria"].get())
+    carisma = int(entradas_atributos["Carisma"].get())
 
-    p = personagem.Personagem(nome=personagem, raca=raca, classe=classe, nivel=nivel, alinhamento=alinhamento, background=background, forca=forca, destreza=destreza, constituicao=constituicao, inteligencia=inteligencia, sabedoria=sabedoria, carisma=carisma)
+    p = personagem.Personagem(nome=pers, raca=raca, classe=classe, nivel=nivel, alinhamento=alinhamento, background=background, forca=forca, destreza=destreza, constituicao=constituicao, inteligencia=inteligencia, sabedoria=sabedoria, carisma=carisma)
 
     print(jogador)
     print(p.nome)
@@ -33,6 +33,10 @@ def gerar_ficha():
     print(p.inteligencia, p.sabedoria, p.carisma)
     print(p.modificador_forca, p.modificador_destreza, p.modificador_constituicao)
     print(p.modificador_inteligencia, p.modificador_sabedoria, p.modificador_carisma)
+
+    
+
+
 
 
 
