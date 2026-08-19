@@ -1,6 +1,6 @@
 import personagem
 
-p = personagem.Personagem("John", "Anão", "Barbaro", 1, "Nenhum", "Neutro", 15, 15, 15, 15, 15, 15)
+p = personagem.Personagem("John", "Halfling", "Barbaro", 1, "Nenhum", "Neutro", 15, 15, 15, 15, 15, 15)
 
 print(f"Nome: {p.nome}")
 print(f"Raça: {p.raca}")
